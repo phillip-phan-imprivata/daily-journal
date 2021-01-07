@@ -74,6 +74,27 @@ fieldset {
 	border-radius: 5px;
 }
 
+.previousEntries {
+	margin: auto;
+	background-color: #3a4555;
+	border-radius: 5px;
+	width: 630px;
+}
+
+.previousEntries__list {
+	list-style: none;
+	color: #edecec;
+	margin: 10px;
+	padding: 10px 5px;
+}
+
+.previousEntries__list li {
+	border: 1px dashed #edecec;
+	margin: 10px 0;
+	padding: 10px;
+	border-radius: 5px;
+}
+
 footer {
 	background-color: #edecec;
 	width: 100%;
