@@ -40,45 +40,53 @@ header img{
 
 header h1 {
 	margin: auto 0;
-}
-
-form {
-	border: 1px solid black;
-	margin: auto;
-	margin-top: 20px;
-	width: 630px;
-	background-color: #3a4555;
-	color: #edecec;
-	border-radius: 5px;
-}
-
-label {
-	font-size: large;
+	cursor: default;
 }
 
 fieldset {
-	margin: 10px;
-	padding: 10px;
+	margin: 10px auto;
+	width: fit-content;
+	border-radius: 5px;
+	background-color: #3a4555;
+	color: #edecec;
+	border: 1px solid black;
+}
+
+input,
+select {
+	margin: 10px 10px 10px 5px;
+}
+
+label {
+	margin: 10px 0 10px 10px;
 }
 
 .form__top {
 	display: flex;
 }
 
+textarea, 
+input, 
+select {
+	outline: none;
+}
+
 .form__submit {
-	margin: 10px;
+	margin-left: 114px;
 }
 
 .submitButton {
 	background-color: #29c1e1;
 	border-radius: 5px;
+	cursor: pointer;
 }
 
 .previousEntries {
 	margin: auto;
 	background-color: #3a4555;
 	border-radius: 5px;
-	width: 630px;
+	width: 944px;
+	border: 1px solid black;
 }
 
 .previousEntries__list {
@@ -106,6 +114,7 @@ footer {
 
 .footer__text {
 	margin: 10px 10px 0px 10px;
+	cursor: default;
 }
 
 .footer__text a {

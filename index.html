@@ -16,19 +16,17 @@
 
             <!-- form for current entry-->
             <form action="">
+                <fieldset>
 
-                <!-- date, concept, and mood input -->
-                <div class="form__top">
-                    <fieldset>
-                        <label for="journalDate">Date of Entry</label>
+                    <!-- date, concept, and mood input -->
+                    <div class="form__top">
+                        <label for="journalDate">Date of Entry:</label>
                         <input type="date" name="journalDate" id="journalDate">
-                    </fieldset>
-                    <fieldset>
-                        <label for="journalConcepts">Concepts Covered</label>
-                        <input type="text" name="journalConcepts" id="journalConcepts">
-                    </fieldset>
-                    <fieldset>
-                        <label for="journalMood">Mood of the Day</label>
+                        
+                        <label for="journalConcepts">Concepts Covered:</label>
+                        <input type="text" name="journalConcepts" id="journalConcepts" placeholder="What did you learn?">
+                        
+                        <label for="journalMood">Mood of the Day:</label>
                         <select id="moods">
                             <option value="" disabled selected>Select Your Mood</option>
                             <option value="Happy">Happy</option>
@@ -37,21 +35,19 @@
                             <option value="Frustrated">Frustrated</option>
                             <option value="Confused">Confused</option>
                         </select>
-                    </fieldset>
-                </div>
+                    </div>
 
-                <!-- text area input -->
-                <div class="form__bottom">
-                    <fieldset>
-                        <label for="journalEntry">Journal Entry</label>
-                        <textarea name="journalEntry" id="journalEntry" rows="5" cols="70" style="resize: none;"></textarea>
-                    </fieldset>
-                </div>
+                    <!-- text area input -->
+                    <div class="form__bottom">
+                        <label for="journalEntry">Journal Entry:</label>
+                        <textarea name="journalEntry" id="journalEntry" rows="7" cols="97" style="resize: none;" placeholder="Make an entry..."></textarea>
+                    </div>
 
-                <!-- submit button -->
-                <div class="form__submit">
-                    <input class="submitButton" type="submit" value="Record Journal Entry">                    
-                </div>
+                    <!-- submit button -->
+                    <div class="form__submit">
+                        <input class="submitButton" type="submit" value="Record Journal Entry">                    
+                    </div>
+                </fieldset>
             </form>
 
             <!-- list of previous entries -->
