@@ -2,14 +2,73 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Nashville Software School</title>
+        <title>Daily Journal</title>
         <link rel="stylesheet" href="./styles/main.css">
     </head>
 
     <body>
+        <header>
+            <img src="./images/daily journal logo.png" alt="logo">
+            <h1>[USER]'s Daily Journal</h1>
+        </header>
+        
         <main id="container">
 
+            <!-- form for current entry-->
+            <form action="">
+
+                <!-- date, concept, and mood input -->
+                <div class="form__top">
+                    <fieldset>
+                        <label for="journalDate">Date of Entry</label>
+                        <input type="date" name="journalDate" id="journalDate">
+                    </fieldset>
+                    <fieldset>
+                        <label for="journalConcepts">Concepts Covered</label>
+                        <input type="text" name="journalConcepts" id="journalConcepts">
+                    </fieldset>
+                    <fieldset>
+                        <label for="journalMood">Mood of the Day</label>
+                        <select id="moods">
+                            <option value="" disabled selected>Select Your Mood</option>
+                            <option value="Happy">Happy</option>
+                            <option value="Okay">Okay</option>         
+                            <option value="Sad">Sad</option>
+                            <option value="Frustrated">Frustrated</option>
+                            <option value="Confused">Confused</option>
+                        </select>
+                    </fieldset>
+                </div>
+
+                <!-- text area input -->
+                <div class="form__bottom">
+                    <fieldset>
+                        <label for="journalEntry">Journal Entry</label>
+                        <textarea name="journalEntry" id="journalEntry" rows="5" cols="70" style="resize: none;"></textarea>
+                    </fieldset>
+                </div>
+
+                <!-- submit button -->
+                <div class="form__submit">
+                    <input class="submitButton" type="submit" value="Record Journal Entry">                    
+                </div>
+            </form>
+
+            <!-- list of previous entries -->
+            <div class="previousEntries">
+                <ul>
+
+                </ul>
+            </div>
+
         </main>
+
+        <footer>
+            <div class="footer__text">
+                <a href="https://github.com/phillipphan">Phillip Phan's GitHub</a>
+                <small style="float: right">&copy; Copyright 2021</small>
+            </div>
+        </footer>
 
         <script type="module" src="./scripts/main.js"></script>
     </body>

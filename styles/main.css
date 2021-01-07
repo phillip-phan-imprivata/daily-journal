@@ -17,3 +17,81 @@ h1,h2,h3,h4,h5,h6 {
   font-family: "Patua One", serif;
   letter-spacing: 2px;
 }
+
+html, 
+body {
+	margin: 0;
+}
+
+body {
+	background-color: #d4d4d4;
+}
+
+header {
+	display: flex;
+	background-color: #edecec;
+	width: 100%;
+	overflow: hidden;
+}
+
+header img{
+	width: 100px;
+}
+
+header h1 {
+	margin: auto 0;
+}
+
+form {
+	border: 1px solid black;
+	margin: auto;
+	margin-top: 20px;
+	width: 630px;
+	background-color: #3a4555;
+	color: #edecec;
+	border-radius: 5px;
+}
+
+label {
+	font-size: large;
+}
+
+fieldset {
+	margin: 10px;
+	padding: 10px;
+}
+
+.form__top {
+	display: flex;
+}
+
+.form__submit {
+	margin: 10px;
+}
+
+.submitButton {
+	background-color: #29c1e1;
+	border-radius: 5px;
+}
+
+footer {
+	background-color: #edecec;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	overflow: hidden;
+	height: 35px;
+}
+
+.footer__text {
+	margin: 10px 10px 0px 10px;
+}
+
+.footer__text a {
+	text-decoration: none;
+	color: #404040;
+}
+
+.footer__text a:hover {
+	text-decoration: underline;
+}
