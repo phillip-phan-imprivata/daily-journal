@@ -54,7 +54,7 @@ fieldset {
 
 input,
 select {
-	margin: 10px 10px 10px 5px;
+	margin: 10px 10px 10px 6px;
 }
 
 label {
@@ -81,35 +81,34 @@ select {
 	cursor: pointer;
 }
 
-.previousEntries {
+#entryLog {
 	margin: auto;
 	background-color: #3a4555;
 	border-radius: 5px;
-	width: 944px;
+	width: 935px;
 	border: 1px solid black;
 }
 
-.previousEntries__list {
-	list-style: none;
+.journalEntry {
 	color: #edecec;
-	margin: 10px;
-	padding: 10px 5px;
+	padding: 10px;
+	margin: 5px;
+	border: 1px dashed #edecec;
+	border-radius: 5px;
 }
 
-.previousEntries__list li {
-	border: 1px dashed #edecec;
-	margin: 10px 0;
-	padding: 10px;
-	border-radius: 5px;
+.entryContainer {
+	display: flex;
+	justify-content: space-between;
 }
 
 footer {
 	background-color: #edecec;
 	width: 100%;
-	position: absolute;
 	bottom: 0;
 	overflow: hidden;
 	height: 35px;
+	margin-top: 10px;
 }
 
 .footer__text {
