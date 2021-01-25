@@ -14,11 +14,7 @@ export const EntryListComponent = () => {
     // Use the journal entry data from the data provider component
     const entries = useJournalEntries()
 
-    for (const entry of entries) {
-        /*
-            Invoke the component that returns an
-            HTML representation of a single entry
-        */
-        entryLog.innerHTML += JournalEntryComponent(entry)
-    }
+    entryLog.innerHTML += `
+    ${entries.map(entry => JournalEntryComponent(entry)).join("")}
+    `
 }
