@@ -1,0 +1,32 @@
+{
+  "entries": [
+    {
+      "id": 1,
+      "date": "01/04/2021",
+      "concept": "HTML & CSS",
+      "entry": "We talked about HTML components and how to make grid layouts with Flexbox in CSS.",
+      "mood": "Okay"
+    },
+    {
+      "id": 2,
+      "date": "01/12/2021",
+      "concept": "JavaScript",
+      "entry": "started implementing JavaScript to automate website data.",
+      "mood": "Okay"
+    },
+    {
+      "id": 3,
+      "date": "01/13/2021",
+      "concept": "JavaScript pt 2",
+      "entry": "More js eskettit",
+      "mood": "Not Okay"
+    },
+    {
+      "date": "2021-01-28",
+      "concept": "API",
+      "entry": "added api to daily journal",
+      "mood": "good",
+      "id": 4
+    }
+  ]
+}

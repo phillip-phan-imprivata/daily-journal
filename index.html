@@ -14,41 +14,8 @@
         
         <main id="container">
 
-            <!-- form for current entry-->
-            <form action="">
-                <fieldset>
-
-                    <!-- date, concept, and mood input -->
-                    <div class="form__top">
-                        <label for="journalDate">Date of Entry:</label>
-                        <input type="date" name="journalDate" id="journalDate">
-                        
-                        <label for="journalConcepts">Concepts Covered:</label>
-                        <input type="text" name="journalConcepts" id="journalConcepts" placeholder="What did you learn?">
-                        
-                        <label for="journalMood">Mood of the Day:</label>
-                        <select id="moods">
-                            <option value="" disabled selected>Select Your Mood</option>
-                            <option value="good">Good</option>
-                            <option value="bad">Bad</option>         
-                            <option value="sad">Sad</option>
-                            <option value="ok">Ok</option>
-                            <option value="notOk">Not Okay</option>
-                        </select>
-                    </div>
-
-                    <!-- text area input -->
-                    <div class="form__bottom">
-                        <label for="journalEntry">Journal Entry:</label>
-                        <textarea name="journalEntry" id="journalEntry" rows="7" cols="97" style="resize: none;" placeholder="Make an entry..."></textarea>
-                    </div>
-
-                    <!-- submit button -->
-                    <div class="form__submit">
-                        <input class="submitButton" type="submit" value="Record Journal Entry">                    
-                    </div>
-                </fieldset>
-            </form>
+            <div class="form__container"></div>
+            </div>
 
             <!-- list of previous entries -->
             <div id="entryLog">
