@@ -23,7 +23,7 @@ export const JournalFormComponent = () => {
               <input type="text" name="journalConcepts" id="journalConcepts" placeholder="What did you learn?" autocomplete="off">
               
               <label for="journalInstructor">Concept Instructor:</label>
-              <select id="instructor">
+              <select id="journalInstructor">
                 <option value="0">Choose an instructor</option>
                 ${instructors.map(instructor => `<option value="${instructor.id}">${instructor.firstName}</option>`).join("")}
               </select>
@@ -64,10 +64,11 @@ eventHub.addEventListener("click", e => {
     }
 
     const newEntry = {
-      "date": `${document.getElementById("journalDate").value}`,
-      "concept": `${document.getElementById("journalConcepts").value}`,
-      "entry": `${document.getElementById("journalEntry").value}`,
-      "moodId": `${document.getElementById("moods").value}`
+      "date": document.getElementById("journalDate").value,
+      "concept": document.getElementById("journalConcepts").value,
+      "entry": document.getElementById("journalEntry").value,
+      "instructorId": parseInt(document.getElementById("journalInstructor").value),
+      "moodId": parseInt(document.getElementById("moods").value)
     }
 
     saveJournalEntry(newEntry)

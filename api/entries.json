@@ -1,18 +1,12 @@
 {
   "entries": [
     {
-      "date": "2021-02-10",
-      "concept": "many to many",
-      "entry": "many to many type stuff",
-      "moodId": "4",
+      "date": "2021-02-11",
+      "concept": "nothing",
+      "entry": "yuh",
+      "instructorId": 1,
+      "moodId": 1,
       "id": 1
-    },
-    {
-      "date": "2021-02-10",
-      "concept": "moods",
-      "entry": "moodId to mood label type stuff\n",
-      "moodId": "5",
-      "id": 2
     }
   ],
   "moods": [
