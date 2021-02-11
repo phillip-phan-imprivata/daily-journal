@@ -1,32 +1,52 @@
 {
   "entries": [
     {
+      "date": "2021-02-11",
+      "concept": "nothing",
+      "entry": "yuh",
+      "instructorId": 1,
+      "moodId": 1,
+      "id": 1
+    }
+  ],
+  "moods": [
+    {
       "id": 1,
-      "date": "01/04/2021",
-      "concept": "HTML & CSS",
-      "entry": "We talked about HTML components and how to make grid layouts with Flexbox in CSS.",
-      "mood": "Okay"
+      "label": "Good"
     },
     {
       "id": 2,
-      "date": "01/12/2021",
-      "concept": "JavaScript",
-      "entry": "started implementing JavaScript to automate website data.",
-      "mood": "Okay"
+      "label": "Bad"
     },
     {
       "id": 3,
-      "date": "01/13/2021",
-      "concept": "JavaScript pt 2",
-      "entry": "More js eskettit",
-      "mood": "Not Okay"
+      "label": "Sad"
     },
     {
-      "date": "2021-01-28",
-      "concept": "API",
-      "entry": "added api to daily journal",
-      "mood": "good",
-      "id": 4
+      "id": 4,
+      "label": "Ok"
+    },
+    {
+      "id": 5,
+      "label": "Not Okay"
+    }
+  ],
+  "instructors": [
+    {
+      "id": 1,
+      "firstName": "Jisie"
+    },
+    {
+      "id": 2,
+      "firstName": "Bryan"
+    },
+    {
+      "id": 3,
+      "firstName": "Scott"
+    },
+    {
+      "id": 4,
+      "firstName": "Sage"
     }
   ]
 }
