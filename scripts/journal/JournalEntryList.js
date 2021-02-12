@@ -10,8 +10,21 @@ import { getMoods, useMoods } from "./MoodProvider.js"
 import { getInstructors, useInstructors } from "./InstructorProvider.js"
 
 // DOM reference to where all entries will be rendered
-const entryLog = document.querySelector("#entryLog")
+const contentTarget = document.querySelector("#entryLog")
 const eventHub = document.querySelector("#container")
+
+const render = (entries) => {
+    const moods = useMoods()
+    const instructors = useInstructors()
+
+    const entriesList = entries.map(entry => {
+        const matchingMood = moods.find(mood => mood.id === entry.moodId)
+        const matchingInstructor = instructors.find(instructor => instructor.id === entry.instructorId)
+        return JournalEntryComponent(entry, matchingMood, matchingInstructor)
+    }).join("")
+
+    contentTarget.innerHTML = entriesList
+}
 
 export const EntryListComponent = () => {
 
@@ -20,19 +33,9 @@ export const EntryListComponent = () => {
         .then(getInstructors)
         .then(() => {
             // Use the journal entry data from the data provider component
-            const moods = useMoods()
             const entries = useJournalEntries()
-            const instructors = useInstructors()
-        
-            const entriesWithMoods = entries.map(entry => {
-                const matchingMood = moods.find(mood => mood.id === entry.moodId)
-                const matchingInstructor = instructors.find(instructor => instructor.id === entry.instructorId)
-                return JournalEntryComponent(entry, matchingMood, matchingInstructor)
-            }).join("")
-
-            entryLog.innerHTML = `
-            ${entriesWithMoods}
-            `
+            
+            render(entries)
         })
 }
 
@@ -47,4 +50,10 @@ eventHub.addEventListener("click", e => {
         deleteJournalEntry(id)
             .then(EntryListComponent)
     }
+})
+
+eventHub.addEventListener("moodChosen", e => {
+    const entries = e.detail.filteredEntries
+
+    render(entries)
 })

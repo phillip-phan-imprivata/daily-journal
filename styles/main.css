@@ -50,7 +50,6 @@ header h1 {
 
 fieldset {
 	margin: 10px auto;
-	width: fit-content;
 	border-radius: 5px;
 	background-color: #3a4555;
 	color: #edecec;
@@ -59,15 +58,12 @@ fieldset {
 
 input,
 select {
-	margin: 10px 10px 10px 6px;
-}
-
-label {
-	margin: 10px 0 10px 10px;
+	margin: 10px 10px;
 }
 
 .form__top {
 	display: flex;
+	flex-wrap: wrap;
 }
 
 textarea, 
@@ -76,21 +72,29 @@ select {
 	outline: none;
 }
 
-.form__submit {
-	margin-left: 114px;
+.form__container {
+	width: 1000px;
+	margin: 0 auto
 }
 
-.submitButton {
+#submitButton {
 	background-color: #29c1e1;
 	border-radius: 5px;
 	cursor: pointer;
+	display: block;
+	margin: 0 auto;
+}
+
+.filters,
+#entryLog {
+	width: 920px;
+	margin: 0 auto;
 }
 
 #entryLog {
 	margin: auto;
 	background-color: #3a4555;
 	border-radius: 5px;
-	width: 935px;
 	border: 1px solid black;
 }
 
@@ -114,6 +118,7 @@ footer {
 	overflow: hidden;
 	height: 35px;
 	margin-top: 10px;
+	position: relative;
 }
 
 .footer__text {

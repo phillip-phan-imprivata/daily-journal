@@ -1,6 +1,8 @@
-import { saveJournalEntry } from "./JournalDataProvider.js"
+import { getEntries, saveJournalEntry, useJournalEntries } from "./JournalDataProvider.js"
 import { getMoods, useMoods } from "./MoodProvider.js"
 import { getInstructors, useInstructors } from "./InstructorProvider.js"
+import { findTag, getTags, saveTag, useTags } from "../tags/TagProvider.js"
+import { saveEntryTags } from "../tags/EntryTagProvider.js"
 
 const contentTarget = document.querySelector(".form__container")
 const eventHub = document.querySelector("#container")
@@ -21,6 +23,9 @@ export const JournalFormComponent = () => {
               
               <label for="journalConcepts">Concepts Covered:</label>
               <input type="text" name="journalConcepts" id="journalConcepts" placeholder="What did you learn?" autocomplete="off">
+
+              <label for="journalTags">Concept Tags:</label>
+              <input type="text" name="journalTags" id="journalTags" placeholder="Tags" autocomplete="off">
               
               <label for="journalInstructor">Concept Instructor:</label>
               <select id="journalInstructor">
@@ -73,4 +78,50 @@ eventHub.addEventListener("click", e => {
 
     saveJournalEntry(newEntry)
   }
+})
+
+eventHub.addEventListener("journalStateChanged", e => {
+  const formTags = document.getElementById("journalTags").value.split(",")
+
+  let entry = null
+  getEntries()
+    .then(() => {
+      const entriesArr = useJournalEntries()
+      entry = entriesArr[entriesArr.length-1]
+    })
+
+  formTags.forEach(tag => {
+    findTag(tag)
+      .then(matches => {
+        let matchingTag = null
+
+        if(matches.length > 0){
+          matchingTag = matches[0].id
+        }
+
+        if(matchingTag === null){
+          const savedTag = {
+            "subject": tag
+          }
+
+          saveTag(savedTag)
+            .then(() => {
+              const tagsArr = useTags()
+              const new_tag = tagsArr[tagsArr.length-1]
+              
+              const entryTag = {
+                "entryId": parseInt(entry.id),
+                "tagId": parseInt(new_tag.id)
+              }
+              saveEntryTags(entryTag)
+            })
+          } else{
+            const entryTag = {
+              "entryId": parseInt(entry.id),
+              "tagId": parseInt(matchingTag)
+            }
+            saveEntryTags(entryTag)
+          }
+      })
+  })
 })
