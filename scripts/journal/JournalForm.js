@@ -1,4 +1,4 @@
-import { getEntries, saveJournalEntry, useJournalEntries } from "./JournalDataProvider.js"
+import { getEntries, saveJournalEntry, useJournalEntries, useUnsortedEntries } from "./JournalDataProvider.js"
 import { getMoods, useMoods } from "./MoodProvider.js"
 import { getInstructors, useInstructors } from "./InstructorProvider.js"
 import { findTag, getTags, saveTag, useTags } from "../tags/TagProvider.js"
@@ -80,48 +80,41 @@ eventHub.addEventListener("click", e => {
   }
 })
 
+const makeEntryTag = (tag, chosenEntry) => {
+  getTags()
+  .then(() => {
+    findTag(tag)
+      .then(tagArr=> {
+        if (tagArr.length !== 0){
+          const matchingTag = tagArr[0]
+  
+          const savedTag = {
+            "entryId": chosenEntry.id,
+            "tagId": matchingTag.id
+          }
+  
+          saveEntryTags(savedTag)
+        } else {
+          const newTag = {
+            "subject": tag
+          }
+  
+          saveTag(newTag)
+            .then(makeEntryTag(tag, chosenEntry))
+        }
+      })
+  })
+}
+
 eventHub.addEventListener("journalStateChanged", e => {
   const formTags = document.getElementById("journalTags").value.split(",")
 
-  let entry = null
-  getEntries()
-    .then(() => {
-      const entriesArr = useJournalEntries()
-      entry = entriesArr[entriesArr.length-1]
-    })
-
-  formTags.forEach(tag => {
-    findTag(tag)
-      .then(matches => {
-        let matchingTag = null
-
-        if(matches.length > 0){
-          matchingTag = matches[0].id
-        }
-
-        if(matchingTag === null){
-          const savedTag = {
-            "subject": tag
-          }
-
-          saveTag(savedTag)
-            .then(() => {
-              const tagsArr = useTags()
-              const new_tag = tagsArr[tagsArr.length-1]
-              
-              const entryTag = {
-                "entryId": parseInt(entry.id),
-                "tagId": parseInt(new_tag.id)
-              }
-              saveEntryTags(entryTag)
-            })
-          } else{
-            const entryTag = {
-              "entryId": parseInt(entry.id),
-              "tagId": parseInt(matchingTag)
-            }
-            saveEntryTags(entryTag)
-          }
+  formTags.map(tag => {
+    getEntries()
+      .then(() => {
+        const entriesArr = useUnsortedEntries()
+        let latestEntry = entriesArr[entriesArr.length - 1]
+        makeEntryTag(tag, latestEntry)
       })
   })
 })

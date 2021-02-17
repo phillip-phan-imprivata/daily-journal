@@ -5,9 +5,7 @@ export const useTags = () => tags.slice()
 export const getTags = () => {
   return fetch("http://localhost:8088/tags")
     .then(res => res.json())
-    .then(parsedRes => {
-      tags = parsedRes
-    })
+    .then(parsedRes => tags = parsedRes)
 }
 
 export const saveTag = (tag) => {

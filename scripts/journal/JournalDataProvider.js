@@ -23,6 +23,8 @@ export const useJournalEntries = () => {
   return sortedByDate
 }
 
+export const useUnsortedEntries = () => journal.slice()
+
 const dispatchStateChangeEvent = () => {
   eventHub.dispatchEvent(new CustomEvent("journalStateChanged"))
 }

@@ -1,5 +1,7 @@
 {
   "entries": [],
+  "tags": [],
+    "entrytags": [],
   "moods": [
     {
       "id": 1,
@@ -39,7 +41,5 @@
       "id": 4,
       "firstName": "Sage"
     }
-  ],
-  "tags": [],
-  "entrytags": []
+  ]
 }
