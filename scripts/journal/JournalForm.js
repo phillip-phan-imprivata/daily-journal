@@ -1,6 +1,8 @@
-import { saveJournalEntry } from "./JournalDataProvider.js"
+import { getEntries, saveJournalEntry, useJournalEntries, useUnsortedEntries } from "./JournalDataProvider.js"
 import { getMoods, useMoods } from "./MoodProvider.js"
 import { getInstructors, useInstructors } from "./InstructorProvider.js"
+import { findTag, getTags, saveTag, useTags } from "../tags/TagProvider.js"
+import { saveEntryTags } from "../tags/EntryTagProvider.js"
 
 const contentTarget = document.querySelector(".form__container")
 const eventHub = document.querySelector("#container")
@@ -21,6 +23,9 @@ export const JournalFormComponent = () => {
               
               <label for="journalConcepts">Concepts Covered:</label>
               <input type="text" name="journalConcepts" id="journalConcepts" placeholder="What did you learn?" autocomplete="off">
+
+              <label for="journalTags">Concept Tags:</label>
+              <input type="text" name="journalTags" id="journalTags" placeholder="Tags" autocomplete="off">
               
               <label for="journalInstructor">Concept Instructor:</label>
               <select id="journalInstructor">
@@ -73,4 +78,43 @@ eventHub.addEventListener("click", e => {
 
     saveJournalEntry(newEntry)
   }
+})
+
+const makeEntryTag = (tag, chosenEntry) => {
+  getTags()
+  .then(() => {
+    findTag(tag)
+      .then(tagArr=> {
+        if (tagArr.length !== 0){
+          const matchingTag = tagArr[0]
+  
+          const savedTag = {
+            "entryId": chosenEntry.id,
+            "tagId": matchingTag.id
+          }
+  
+          saveEntryTags(savedTag)
+        } else {
+          const newTag = {
+            "subject": tag
+          }
+  
+          saveTag(newTag)
+            .then(makeEntryTag(tag, chosenEntry))
+        }
+      })
+  })
+}
+
+eventHub.addEventListener("journalStateChanged", e => {
+  const formTags = document.getElementById("journalTags").value.split(",")
+
+  formTags.map(tag => {
+    getEntries()
+      .then(() => {
+        const entriesArr = useUnsortedEntries()
+        let latestEntry = entriesArr[entriesArr.length - 1]
+        makeEntryTag(tag, latestEntry)
+      })
+  })
 })

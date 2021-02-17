@@ -1,14 +1,7 @@
 {
-  "entries": [
-    {
-      "date": "2021-02-11",
-      "concept": "nothing",
-      "entry": "yuh",
-      "instructorId": 1,
-      "moodId": 1,
-      "id": 1
-    }
-  ],
+  "entries": [],
+  "tags": [],
+    "entrytags": [],
   "moods": [
     {
       "id": 1,
